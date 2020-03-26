@@ -1,18 +1,63 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>Earth Realtime</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link type="text/css" href="main.css" rel="stylesheet" />	
-        <script type="text/javascript" src="script.js"></script>
-    </head>
-    <body>
-        <div class="ball"></div>
-        <!-- aparte div voor de cloud, vond het iets mooier dan los een img neer pleuren,
-        zat er ook aan te denken misschien een 2e toe te voegen -->
-        <div class="cloud">
-            <img id="cloud1" src="img/cloud.svg"/>
-            <img id="cloud2" src="img/cloud.svg"/>
-        </div>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>EarthTime</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link type="text/css" href="style.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Baloo+2&display=swap"
+      rel="stylesheet"
+    />
+    <script type="text/javascript" src="script.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+    <div class="timetext">
+      <h1>NL time now</h1>
+    </div>
+    <div>
+      <svg id="clock" viewBox="0 0 330 330">
+        <circle id="clock-face" class="line" cx="165" cy="165" r="160" />
+        <line
+          id="minute-hand"
+          class="line"
+          x1="165"
+          y1="163.7"
+          x2="165"
+          y2="35.6"
+        />
+        <line
+          id="hour-hand"
+          class="line"
+          x1="165"
+          y1="163.7"
+          x2="165"
+          y2="90"
+        />
+        <line
+          id="second-hand"
+          class="line"
+          x1="165"
+          y1="163.7"
+          x2="165"
+          y2="35.6"
+        />
+        <circle id="clock-center" cx="165" cy="163.7" r="5" />
+        <title id="readable-time">Clock Time:</title>
+      </svg>
+    </div>
+    <!-- aparte div voor de cloud, vond het iets mooier dan los een img neer pleuren,
+    zat er ook aan te denken misschien een 2e toe te voegen -->
+    <div class="cloud">
+      <img id="cloud1" src="img/cloud.svg" />
+      <img id="cloud2" src="img/cloud.svg" />
+    </div>
+
+    <div id="night-sky">
+      <svg viewBox="0 0 800 600">
+      </svg>
+    </div>
+
+  </body>
 </html>

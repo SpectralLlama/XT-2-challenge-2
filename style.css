@@ -1,0 +1,124 @@
+* {
+  font-family: "Baloo 2", cursive;
+}
+
+body {
+  background-color: #70d3f1;
+  animation: fadeToDay 2s ease-in-out; 
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Animations */
+@keyframes fadeToDay {
+  0%   { background-color: rgb(11, 9, 109); }
+  50%  { background-color: rgb(32, 109, 145); }
+  100% { background-color: rgb(58, 196, 238); }
+}
+@keyframes fadeToNight {
+  0%   { background-color: rgb(58, 196, 238); }
+  50%  { background-color: rgb(32, 109, 145);}
+  100% { background-color: rgb(11, 9, 109); }
+}
+
+.backgroundAnimated{    
+    background-image:none !important; 
+         -o-animation: fadeIt 5s ease-in-out; 
+            animation: fadeIt 5s ease-in-out; 
+}
+
+
+/* titular things */
+.timetext {
+  font-size: 2em;
+  color: white;
+  text-align: center;
+}
+
+/* -----------------------------
+clock stuff
+-------------------------------- */
+#clock {
+  width: 200px;
+  max-width: 200px;
+  margin: 0 auto;
+  position: absolute;
+  top: 35%;
+  left: 65%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.line {
+  fill: none;
+  stroke: rgb(224, 224, 188);
+  stroke-width: 6;
+  stroke-miterlimit: 10;
+}
+
+#clock-face {
+  stroke-width: 15;
+  fill: rgb(238, 241, 33);
+}
+
+#hour-hand {
+  transform-origin: 165px 163.7px;
+}
+
+#minute-hand {
+  transform-origin: 165px 163.7px;
+}
+
+#second-hand {
+  fill: none;
+  stroke: #ff282c;
+  stroke-width: 2;
+  transform: rotate(0);
+  transform-origin: 165px 163.7px;
+}
+/* ---------clock stuff end---------- */
+
+@keyframes floatAround {
+  0%   { left: 10%; }
+  30%  { left: 50%; }
+  100% { left: 80%; }
+}
+
+#cloud1 {
+  height: 150px;
+  position: absolute;
+  top: 37%;
+  left: 10%;
+  z-index: 100;
+  animation: floatAround 7s ease-in-out alternate infinite;
+}
+
+#cloud2 {
+  height: 100px;
+  z-index: 99;
+  position: absolute;
+  top: 34%;
+  left: 10%;
+  animation: floatAround 7s ease-in-out 0.5s alternate infinite;
+}
+
+/* --- night time --- */
+
+.night {
+  background-color: rgb(11, 9, 109);
+  animation: fadeToNight 2s ease-in-out; 
+}
+
+.night #clock-face {
+	fill: #cc6600;
+}
+
+.night #second-hand { 
+	stroke: #000055;	
+}
+
+.night .star {
+  fill: #ffffff;
+}
