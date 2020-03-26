@@ -18,6 +18,24 @@ document.addEventListener("DOMContentLoaded", function() {
   var clockItUp = setInterval(moveHands, 1000);
 });
 
+var lazyResizer;
+window.addEventListener('resize', function() {
+  if (lazyResizer)
+    clearInterval(lazyResizer);
+
+  lazyResizer = setTimeout(resizeHandler, 500);
+});
+
+function resizeHandler() {
+  lazyResizer = null;
+  var body = document.getElementsByTagName('body')[0];
+  
+  if (body.classList.contains("night")) {
+    seeTheStars();
+  }
+}
+
+// remove all stars
 function clearTheSky() {
   var sky = document.querySelector("#night-sky > svg");
 
@@ -28,21 +46,22 @@ function clearTheSky() {
 }
 
 function seeTheStars() {
-  var xmlns = "http://www.w3.org/2000/svg";
   var sky = document.querySelector("#night-sky > svg");
-  var width = sky.width || 800;
-  var height = sky.height || 600;
-  var starCount = 100; // Of random: tussen 0 en 100: Math.random()*100;
+  var width = window.innerWidth;
+  var height = window.innerHeight;
+  var starCount = 100; // Of random tussen 0 en 100: Math.round(Math.random()*100);
 
   clearTheSky();
 
-  // Tonight is a new sky.
+  sky.setAttribute("viewBox", "0 0 " + width + " " + height);
+
+  // Tonight is a new sky. counts numbers for starcount var
   for (var i=0; i < starCount; i++) {
-    var circle = document.createElementNS(xmlns, "circle");
+    var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     circle.classList.add("star");
-    circle.cx = Math.random()*width;
-    circle.cy = Math.random()*height;
-    circle.r = 2;
+    circle.setAttributeNS(null, "cx", Math.round(Math.random()*width));
+    circle.setAttributeNS(null, "cy", Math.round(Math.random()*height));
+    circle.setAttributeNS(null, "r", 2);
     sky.appendChild(circle);
   }
 }
@@ -54,6 +73,7 @@ function moveHands(time) {
     hourhand = document.getElementById("hour-hand"),
     readabletime = document.getElementById("readable-time");
   
+    // het datumobject aldus de opdracht
   var time = new Date(),
     seconds = (360 / 60) * time.getSeconds(),
     minutes = (360 / 60) * time.getMinutes(),
@@ -61,10 +81,13 @@ function moveHands(time) {
 		
 	// to adjust the nighttime visuals
 	if (time.getHours() > 20 || time.getHours() < 8) { 
-    body.classList.add('night');
-    seeTheStars();
+    // remove to trigger disco
+    if (!body.classList.contains("night")) {
+      body.classList.add('night');
+      seeTheStars();
+    }
 	}
-	else {
+	else if(body.classList.contains("night")) {
     body.classList.remove('night');
     clearTheSky();
   }

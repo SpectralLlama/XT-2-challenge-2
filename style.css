@@ -26,8 +26,7 @@ body {
 
 .backgroundAnimated{    
     background-image:none !important; 
-         -o-animation: fadeIt 5s ease-in-out; 
-            animation: fadeIt 5s ease-in-out; 
+    animation: fadeIt 5s ease-in-out; 
 }
 
 
@@ -45,9 +44,11 @@ clock stuff
   width: 200px;
   max-width: 200px;
   margin: 0 auto;
+  flex-direction: row;
   position: absolute;
   top: 35%;
   left: 65%;
+  z-index: 50;
   transform: translateX(-50%) translateY(-50%);
 }
 
@@ -104,6 +105,21 @@ clock stuff
   animation: floatAround 7s ease-in-out 0.5s alternate infinite;
 }
 
+#night-sky {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  display: none;
+}
+
+#night-sky > svg {
+  width: 100%;
+  height: 100%;
+}
+
 /* --- night time --- */
 
 .night {
@@ -117,6 +133,10 @@ clock stuff
 
 .night #second-hand { 
 	stroke: #000055;	
+}
+
+.night #night-sky {
+  display: block;
 }
 
 .night .star {
