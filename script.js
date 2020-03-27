@@ -77,7 +77,12 @@ function moveHands(time) {
   var time = new Date(),
     seconds = (360 / 60) * time.getSeconds(),
     minutes = (360 / 60) * time.getMinutes(),
-		hours = (360 / 12) * time.getHours() + minutes / 60;
+    hours = (360 / 12) * time.getHours() + minutes / 60;
+  
+    //datum poging begint hier
+    var dateShow = time.getFullYear()+'-'+(time.getMonth()+1)+'-'+time.getDate();
+    var dateDisplay = document.getElementById("datum"); 
+    dateDisplay.innerHTML = dateShow;
 		
 	// to adjust the nighttime visuals
 	if (time.getHours() > 20 || time.getHours() < 8) { 
