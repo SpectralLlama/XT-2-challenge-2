@@ -12,41 +12,43 @@
     <script type="text/javascript" src="script.js"></script>
   </head>
   <body>
-    <div class="timetext">
-      <h1>NL time now</h1>
-      <h2 id="datum"></h2>
-    </div>
-    <div>
-      <svg id="clock" viewBox="0 0 330 330">
-        <circle id="clock-face" class="line" cx="165" cy="165" r="160" />
-        <line
-          id="minute-hand"
-          class="line"
-          x1="165"
-          y1="163.7"
-          x2="165"
-          y2="35.6"
-        />
-        <line
-          id="hour-hand"
-          class="line"
-          x1="165"
-          y1="163.7"
-          x2="165"
-          y2="90"
-        />
-        <line
-          id="second-hand"
-          class="line"
-          x1="165"
-          y1="163.7"
-          x2="165"
-          y2="35.6"
-        />
-        <circle id="clock-center" cx="165" cy="163.7" r="5" />
-        <title id="readable-time">Clock Time:</title>
-      </svg>
-    </div>
+    <main>
+      <div class="timetext">
+        <h1>NL time now</h1>
+        <h2 id="datum"></h2>
+      </div>
+      <div class ="clockbox">
+        <svg id="clock" viewBox="0 0 330 330">
+          <circle id="clock-face" class="line" cx="165" cy="165" r="160" />
+          <line
+            id="minute-hand"
+            class="line"
+            x1="165"
+            y1="163.7"
+            x2="165"
+            y2="35.6"
+          />
+          <line
+            id="hour-hand"
+            class="line"
+            x1="165"
+            y1="163.7"
+            x2="165"
+            y2="90"
+          />
+          <line
+            id="second-hand"
+            class="line"
+            x1="165"
+            y1="163.7"
+            x2="165"
+            y2="35.6"
+          />
+          <circle id="clock-center" cx="165" cy="163.7" r="5" />
+          <title id="readable-time">Clock Time:</title>
+        </svg>
+      </div>
+    </main>
     <!-- aparte div voor de cloud, vond het iets mooier dan los een img neer pleuren,
     zat er ook aan te denken misschien een 2e toe te voegen -->
     <div class="cloud">
